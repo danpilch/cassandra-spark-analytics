@@ -127,3 +127,5 @@ When the script finished executing you will be left with output like below:
 +----------+-----+
 only showing top 25 rows
 ```
+
+That concludes this demo. If you come up with anything cool submit a PR!

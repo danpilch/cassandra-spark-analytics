@@ -33,7 +33,9 @@ Check docker is functioning correctly by issuing command `docker ps`.
 
 #### Start Cassandra container
 
-We will start Cassandra with the included `compose/cassandra.yml` instruction file. This file can be edited if you know what you are doing but the defaults are fairly sane for this demo. The Cassandra Thrift port (9160) will bind to `127.0.0.1:9160` we will use this to connect to cassandra via `cqlsh` from the host.
+We will start Cassandra with the included `compose/cassandra.yml` instruction file. This file can be edited if you know what you are doing but the defaults are fairly sane for this demo. 
+
+The Cassandra Thrift port (9160) will bind to `127.0.0.1:9160` and we will use this to connect to cassandra via `cqlsh` from the host.
 
 `docker-compose -f compose/cassandra.yml up -d`
 
@@ -43,9 +45,17 @@ Check the container has started with `docker ps`.
 
 Install `cqlsh` with command `pip install --user cqlsh`.
 
-Test you can access cassandra correctly:
+Test you can access cassandra correctly: `cqlsh 127.0.0.1`
 
-`cqlsh 127.0.0.1:9042`
+#### Create schema
+
+Create the Cassandra schema with:
+
+`cqlsh 127.0.0.1 -f cassandra-spark-analytics/schema/spark_demo.cql`
+
+Import the test dataset (use the relative path):
+
+`echo "use spark_demo; COPY person_data FROM '/path/to/cassandra-spark-analytics/schema/spark_demo_data.csv' WITH HEADER=true;" | cqlsh 127.0.0.1`
 
 ### Spark
 

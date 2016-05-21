@@ -53,7 +53,7 @@ Create the Cassandra schema with:
 
 `cqlsh 127.0.0.1 -f cassandra-spark-analytics/schema/spark_demo.cql`
 
-Import the test dataset (use the relative path):
+Import the test dataset (use your relative path):
 
 `echo "use spark_demo; COPY person_data FROM '/path/to/cassandra-spark-analytics/schema/spark_demo_data.csv' WITH HEADER=true;" | cqlsh 127.0.0.1`
 
@@ -71,8 +71,24 @@ echo "SELECT * FROM spark_demo.person_data limit 1;" | cqlsh 127.0.0.1
 
 ### Spark
 
-we will start Spark with the included `compose/spark.yml` instruction file. This file can be edited if you know what you are doing but the defaults are fairly sane for this demo.
+We will start Spark with the included `compose/spark.yml` instruction file. You will need to edit this file to set the relative path to `cassandra-spark-analytics/scripts` this directory will be mounted into the running Spark container to give Spark access to the processing scripts.
+
+#### Start Spark container
 
 `docker-compose -f compose/spark.yml up -d`
 
 Check the container has started with `docker ps`.
+
+#### Execute a Spark job
+
+For this demo we are going to group and count all the first names in our `person_data` table. In `cassandra-spark-analytics/scripts` is `count.py`. You will need to alter `CASSANDRA_DOCKER_IP` and insert the IP address of the running cassandra container:
+
+`conf.set("spark.cassandra.connection.host", "CASSANDRA_DOCKER_IP")`
+
+To get the cassandra container's IP address run: 
+
+`docker inspect --format '{{ .NetworkSettings.IPAddress }}' cassandra`
+
+Once the IP address is updated you can execute the Spark job:
+
+`docker exec -ti spark /spark/bin/spark-submit /jobs/count.py`

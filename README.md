@@ -85,7 +85,7 @@ For this demo we are going to group and count all the first names in our `person
 
 `conf.set("spark.cassandra.connection.host", "CASSANDRA_DOCKER_IP")`
 
-To get the cassandra container's IP address run: 
+To get the Cassandra container's IP address run: 
 
 `docker inspect --format '{{ .NetworkSettings.IPAddress }}' cassandra`
 

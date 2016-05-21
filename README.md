@@ -59,6 +59,8 @@ Import the test dataset (use your relative path):
 
 If it is sucessful you should get some output like: `1000 rows imported in 0.477 seconds.`
 
+I generated the demo data using [Mockaroo](https://www.mockaroo.com/schemas/download).
+
 ```
 echo "SELECT * FROM spark_demo.person_data;" | cqlsh 127.0.0.1
 
@@ -72,6 +74,8 @@ echo "SELECT * FROM spark_demo.person_data;" | cqlsh 127.0.0.1
 ### Spark
 
 We will start Spark with the included `compose/spark.yml` instruction file. You will need to edit this file to set the relative path to `cassandra-spark-analytics/scripts` this directory will be mounted into the running Spark container to give Spark access to the processing scripts.
+
+The Spark instructions are located in `docker/spark/Dockerfile` if you want to roll your own image.
 
 #### Start Spark container
 

@@ -92,3 +92,38 @@ To get the Cassandra container's IP address run:
 Once the IP address is updated you can execute the Spark job:
 
 `docker exec -ti spark /spark/bin/spark-submit /jobs/count.py`
+
+When the script finished executing you will be left with output like below: 
+
+```
++----------+-----+
+|first_name|count|
++----------+-----+
+| Armstrong|   10|
+|    Pierce|   10|
+|    Oliver|    9|
+|    Wilson|    8|
+|   Perkins|    8|
+|Washington|    8|
+|     Hayes|    8|
+|   Russell|    8|
+|   Ramirez|    8|
+|       Cox|    8|
+|    Burton|    8|
+|    Tucker|    7|
+|    Walker|    7|
+|      Sims|    7|
+| Robertson|    7|
+|   Gilbert|    7|
+|    Taylor|    7|
+|  Matthews|    7|
+|      Cook|    7|
+|     Meyer|    7|
+|  Crawford|    7|
+|     Evans|    7|
+|  Gonzales|    7|
+|      Rose|    7|
+|  Martinez|    7|
++----------+-----+
+only showing top 25 rows
+```

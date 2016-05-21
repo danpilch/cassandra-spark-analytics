@@ -31,11 +31,21 @@ Check docker is functioning correctly by issuing command `docker ps`.
 
 ### Cassandra:
 
-We will start Cassandra with the included `compose/cassandra.yml` instruction file. This file can be edited if you know what you are doing but the defaults are fairly sane for this demo.
+#### Start Cassandra container
+
+We will start Cassandra with the included `compose/cassandra.yml` instruction file. This file can be edited if you know what you are doing but the defaults are fairly sane for this demo. The Cassandra Thrift port (9160) will bind to `127.0.0.1:9160` we will use this to connect to cassandra via `cqlsh` from the host.
 
 `docker-compose -f compose/cassandra.yml up -d`
 
 Check the container has started with `docker ps`.
+
+#### Install Cqlsh
+
+Install `cqlsh` with command `pip install --user cqlsh`.
+
+Test you can access cassandra correctly:
+
+`cqlsh 127.0.0.1:9042`
 
 ### Spark
 

@@ -55,7 +55,7 @@ Create the Cassandra schema with:
 
 Import the test dataset (use your relative path):
 
-`echo "use spark_demo; COPY person_data FROM '/path/to/cassandra-spark-analytics/schema/spark_demo_data.csv' WITH HEADER=true;" | cqlsh 127.0.0.1`
+`echo "use spark_demo; COPY person_data (id, first_name, last_name, email, gender, ip_address) FROM '/path/to/cassandra-spark-analytics/schema/spark_demo_data.csv' WITH HEADER=true;" | cqlsh 127.0.0.1`
 
 If it is sucessful you should get some output like: `1000 rows imported in 0.477 seconds.`
 
@@ -64,9 +64,9 @@ I generated the demo data using [Mockaroo](https://www.mockaroo.com/schemas/down
 ```
 echo "SELECT * FROM spark_demo.person_data;" | cqlsh 127.0.0.1
 
- id  | email  | first_name | gender                 | ip_address | last_name
------+--------+------------+------------------------+------------+---------------
- 769 | Ernest |    Sanchez | esanchezlc@comcast.net |       Male | 165.66.44.126
+ id  | email                  | first_name | gender | ip_address    | last_name
+-----+------------------------+------------+--------+---------------+-----------
+ 769 | esanchezlc@comcast.net |     Ernest |   Male | 165.66.44.126 |   Sanchez
 
 ...
 ```
@@ -103,31 +103,31 @@ When the script finished executing you will be left with output like below:
 +----------+-----+
 |first_name|count|
 +----------+-----+
-| Armstrong|   10|
-|    Pierce|   10|
-|    Oliver|    9|
-|    Wilson|    8|
-|   Perkins|    8|
-|Washington|    8|
-|     Hayes|    8|
-|   Russell|    8|
-|   Ramirez|    8|
-|       Cox|    8|
-|    Burton|    8|
-|    Tucker|    7|
-|    Walker|    7|
-|      Sims|    7|
-| Robertson|    7|
-|   Gilbert|    7|
-|    Taylor|    7|
-|  Matthews|    7|
-|      Cook|    7|
-|     Meyer|    7|
-|  Crawford|    7|
-|     Evans|    7|
-|  Gonzales|    7|
-|      Rose|    7|
-|  Martinez|    7|
+|    Brenda|   12|
+|    Sharon|   12|
+|   Deborah|   12|
+|     Kelly|   11|
+|     Diana|   10|
+|    Carlos|   10|
+|     Irene|    9|
+|   Heather|    9|
+|    Louise|    9|
+|    Andrea|    9|
+|   Jeffrey|    9|
+|   Michael|    9|
+|    Victor|    9|
+|     Terry|    8|
+|     Steve|    8|
+|    Ernest|    8|
+|     Larry|    8|
+|      Lois|    8|
+|      John|    8|
+|   Richard|    8|
+|     Louis|    8|
+|     Ralph|    8|
+|    Joseph|    8|
+|      Mary|    8|
+|     Billy|    8|
 +----------+-----+
 only showing top 25 rows
 ```

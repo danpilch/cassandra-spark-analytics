@@ -5,7 +5,7 @@ Supercharge your analysis of Cassandra data with Apache Spark
 
 [Apache Cassandra](http://cassandra.apache.org/) is a fantastic scalable, fault-tolerant NoSQL database, however it is abhorrently hard to query your data outside the realms of what your datamodel will allow. [Apache Spark](http://spark.apache.org/) is a fast and general engine for large-scale data processing. 
 
-In this guide I intend to demonstrate the power of Spark to provide analysis of your Cassandra data in ways that were possibly thought impossible. This guide is aimed at anyone who is interested in data analysis.
+In this guide I intend to demonstrate the power of Spark to provide analysis of your Cassandra data in ways that were previously thought impossible. This guide is aimed at anyone who is interested in data analysis.
 
 ## Requirements
 

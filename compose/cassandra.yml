@@ -1,0 +1,11 @@
+cassandra:
+  image: cassandra:2.2.5
+  container_name: "cassandra"
+  restart: always
+  environment:
+    - CASSANDRA_CLUSTER_NAME=spark_demo
+    - CASSANDRA_ENDPOINT_SNITCH=SimpleSnitch
+    - CASSANDRA_START_RPC=true
+  ports:
+    - "127.0.0.1:9160:9160"
+

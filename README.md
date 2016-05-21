@@ -18,8 +18,10 @@ This guide was developed using [CentOS 7](https://www.centos.org/).
 | [Cassandra](http://cassandra.apache.org/) | `2.2.5` |
 | [Cassandra Spark Connector](https://github.com/datastax/spark-cassandra-connector) | `1.5` |
 | [Spark](http://spark.apache.org/) | `1.6.1` |
-| [Docker](https://www.docker.com/) | `1.11.11` |
+| [Docker](https://www.docker.com/) | `1.11.1` |
 | [Docker-compose](https://docs.docker.com/compose/) | `1.7.1` |
 | [Python](https://www.python.org/) | `2.7.5` |
 
 ### Setup
+
+Firstly we need `docker` and `docker-compose`  installed and running. A good startup guide can be viewed [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-centos-7).

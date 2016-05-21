@@ -59,6 +59,14 @@ Import the test dataset (use the relative path):
 
 If it is sucessful you should get some output like: `1000 rows imported in 0.477 seconds.`
 
+`echo "SELECT * FROM spark_demo.person_data limit 1;" | cqlsh 127.0.0.1
+
+ id  | email  | first_name | gender                 | ip_address | last_name
+-----+--------+------------+------------------------+------------+---------------
+ 769 | Ernest |    Sanchez | esanchezlc@comcast.net |       Male | 165.66.44.126
+
+(1 rows)`
+
 ### Spark
 
 we will start Spark with the included `compose/spark.yml` instruction file. This file can be edited if you know what you are doing but the defaults are fairly sane for this demo.

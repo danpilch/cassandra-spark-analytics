@@ -1,7 +1,7 @@
 spark:
-  image: danpilch/spark:0.1
+  image: danpilch/spark:latest
   container_name: "spark"
   restart: always
   volumes:
-    - /path/to/cassandra-spark-analytics/scripts:/jobs/
+    - /root/cassandra-spark-analytics/scripts:/jobs/
 

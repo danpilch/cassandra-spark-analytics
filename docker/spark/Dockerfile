@@ -37,7 +37,7 @@ RUN git clone https://github.com/datastax/spark-cassandra-connector.git && \
         echo "JAVA_HOME=/opt/jdk" >> /spark/conf/spark-env.sh && chmod +x /spark/conf/spark-env.sh
 
 # Create spark-defaults.conf
-RUN echo -e "spark.eventLog.enabled true\nspark.driver.extraClassPath /spark/spark-cassandra-connector-assembly-1.5.0.jar\nspark.executor.extraClassPath /spark/spark-cassandra-connector-assembly-1.5.0.jar\nspark.executor.memory=12g\nspark.driver.memory=12g" >> spark/conf/spark-defaults.conf
+RUN echo -e "spark.eventLog.enabled true\nspark.driver.extraClassPath /spark/spark-cassandra-connector-assembly-1.5.0.jar\nspark.executor.extraClassPath /spark/spark-cassandra-connector-assembly-1.5.0.jar" >> spark/conf/spark-defaults.conf
 
 # Create start.sh
 RUN echo -e "#\!/bin/bash\n\n/usr/sbin/sshd -D -f /etc/ssh/sshd_config &\n\n/spark/sbin/start-all.sh\n\n/spark/sbin/start-slave.sh spark://`hostname -i`:7077\n\ntail -f /spark/logs/*" >> start.sh && \

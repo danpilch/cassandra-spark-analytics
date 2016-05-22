@@ -16,6 +16,7 @@ This guide was developed using [CentOS 7](https://www.centos.org/).
 | Software | Version |
 | --- | --- |
 | [Cassandra](http://cassandra.apache.org/) | `2.2.5` |
+| [Cqlsh](https://pypi.python.org/pypi/cqlsh/4.1.1) | `4.1.1` |
 | [Cassandra Spark Connector](https://github.com/datastax/spark-cassandra-connector) | `1.5` |
 | [Spark](http://spark.apache.org/) | `1.6.1` |
 | [Docker](https://www.docker.com/) | `1.11.1` |
@@ -45,7 +46,7 @@ Check the container has started with `docker ps`.
 
 #### Install Cqlsh
 
-Install `cqlsh` with command `pip install --user cqlsh`.
+Install `cqlsh` with command `pip install --user cqlsh==4.1.1`.
 
 Test you can access cassandra correctly: `cqlsh 127.0.0.1`
 

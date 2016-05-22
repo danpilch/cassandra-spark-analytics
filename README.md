@@ -24,6 +24,8 @@ This guide was developed using [CentOS 7](https://www.centos.org/).
 
 ## Setup
 
+**Throughout this guide it will assume your working directory path is the base of this repo, YMMV.**
+
 ### Docker:
 Firstly we need `docker` and `docker-compose`  installed and running. A good startup guide can be viewed [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-centos-7).
 
@@ -51,11 +53,11 @@ Test you can access cassandra correctly: `cqlsh 127.0.0.1`
 
 Create the Cassandra schema with:
 
-`cqlsh 127.0.0.1 -f cassandra-spark-analytics/schema/spark_demo.cql`
+`cqlsh 127.0.0.1 -f schema/spark_demo.cql`
 
 Import the test dataset (use your relative path):
 
-`echo "use spark_demo; COPY person_data (id, first_name, last_name, email, gender, ip_address) FROM '/path/to/cassandra-spark-analytics/schema/spark_demo_data.csv' WITH HEADER=true;" | cqlsh 127.0.0.1`
+`echo "use spark_demo; COPY person_data (id, first_name, last_name, email, gender, ip_address) FROM 'schema/spark_demo_data.csv' WITH HEADER=true;" | cqlsh 127.0.0.1`
 
 If it is sucessful you should get some output like: `1000 rows imported in 0.477 seconds.`
 

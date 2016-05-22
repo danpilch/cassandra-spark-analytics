@@ -1,5 +1,5 @@
 spark:
-  image: danpilch/spark:latest
+  image: danpilch/spark:0.2
   container_name: "spark"
   restart: always
   volumes:
